@@ -1,0 +1,29 @@
+<!-- 1 controller per .html -->
+
+<div>
+  <div class="questionList">
+    <ul>
+      <li ng-repeat="question in questions">
+
+      <div>Question: {{ question.question }}</div>
+      <div ng-click="getAnswer(question)">Answer: {{ question.theAnswer }}</div>
+      <div>
+        <form name="editor" ng-submit="editAnswer(question, $index)">
+        Please enter your answer here:
+        <input type="text" placeholder="Enter your answer here" ng-model="answers[$index]"><button>Submit</button>
+        </form>
+      </div>
+
+      <div ng-click="deleteQuestion(question, $index)">Delete</div>
+
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <form name="post" ng-submit="postQuestion()">
+      Post a Question
+      <input type="text" placeholder="Enter your question here!" ng-model="newQuestion"><button>Submit</button>
+    </form>
+  </div>
+</div>
